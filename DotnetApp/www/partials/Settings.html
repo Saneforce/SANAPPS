@@ -1,0 +1,22 @@
+﻿<ion-view title="Settings">
+    <ion-header-bar class="bar bar-header bar-assertive">
+        <h1 class="title">Install Settings</h1>
+    </ion-header-bar>
+    <ion-content>
+       <ion-list class="form-label form-css-label">
+            <div class="item-divider" style="padding:8px;border-bottom: #cad5c4 1px solid;">Configuration Settings</div>            
+            <fieldset>
+              <input id="twburl" name="twburl" ng-model="setting.wburl"  type="text" autocomplete="off" required />
+              <label for="twburl">Web URL ( eg: www.saneforce.com )</label>
+            </fieldset>
+            <fieldset>
+              <input id="tlickey" name="tlickey" ng-model="setting.lickey" type="text" autocomplete="off" required />
+              <label for="tlickey">Licence Key</label>
+            </fieldset>
+        </ion-list>
+    </ion-content>
+    <ion-footer-bar class="bar-dark">
+	    <!--<button class="button button-assertive buttonClear pull-left" ng-click="vibrate();CloseApp()">Close</button>-->
+        <button class="button buttonClear  button-balanced pull-right" ng-click="vibrate();saveSettings()">Save</button>
+    </ion-footer-bar>
+</ion-view>

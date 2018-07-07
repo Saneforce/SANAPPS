@@ -1,0 +1,74 @@
+﻿<ion-view>
+      <ion-content>
+                   
+       <div class="list list-inset">                     
+             <div class="select-component" ng-hide="view_MR" ng-if="fmcgData.worktype.selected.FWFlg == 'F'">
+                <div class="label">
+                    <div class="label-text">Headquarters</div>
+                </div>
+                <div class="select-box">
+                    <div class="input-box">
+                        <div class="input-css" ng-click="openModal('subordinate_master', 18)">
+                            {{(fmcgData.subordinate.selected.id| getValueforIDD : {'collection' : subordinates}).name || "Select the Headquarters"  }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="select-component" ng-if="fmcgData.worktype.selected.FWFlg == 'F'">
+                <div class="label">
+                    <div class="label-text">Cluster</div>
+                </div>
+                <div class="select-box">
+                    <div class="input-box">
+                        <div class="input-css" ng-click="vibrate();openModal('town_master', 2, fmcgData.subordinate.selected.id)">
+
+                            {{(fmcgData.cluster.selected.id| getValueforIDD : {'collection' : clusters}).name || "Select the Cluster"}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+                  <ion-header-bar class="bar bar-assertive item-input-inset">
+
+            <label class="item-input-wrapper">
+                <i class="icon ion-ios7-search placeholder-icon"></i>
+                <input type="search" placeholder="Search Doctor" id="tSearch" ng-model="searchText">
+            </label>
+
+                  </ion-header-bar>
+          <ion-item  ng-repeat="item in DocByCluster | filter:searchText track by $index" style="padding-top:0px;padding-bottom:0px;margin-left:0px;padding-left:0px">
+          <div class="row"  style="padding-left:0px">
+              <div class="col col-70" style="padding-left:0px">
+           <ion-checkbox  ng-model="item.checked" ng-checked="item.checked" ng-click="vibrate();setSelProduct(item);" style="border:none;padding-top:8px;padding-bottom:8px;margin-left:0px;">
+                        <div>{{item.name}}
+ 
+                  
+                        </div>
+                    </ion-checkbox></div>
+            
+              <div class="col col-30"   ng-if="item.checked">
+           <button class="button button-small button-clear" style="background-image:url('img/go.png');float:right;background-size:cover" ng-click="goNext(item)"></button>
+           <button class="button button-small  button-calm buttonClear" ng-if="item.productSelected" style="float:right;"  ng-click="goToProduct(item)">P</button>
+              <button class="button button-small  button-calm buttonClear" ng-if="item.giftSelected" style="float:right;"  ng-click="goToGift(item)">I</button>
+
+             <!--  <button class="button button-small  button-assertive buttonClear pull-right"  >&nbsp;&nbsp;&nbsp;<i class="icon ion-arrow-right-c"></i>&nbsp;&nbsp;&nbsp;</button>
+                 -->
+                    </div>
+              
+             
+          </div>
+               
+              </ion-item>
+                   <!-- <div ng-if="ShowMsg"><center><h5 style="color:red">{{prodmsg}}</h5></center></div>-->
+    </ion-content>
+    <ion-footer-bar class="bar-dark">
+        <button class="button button-assertive buttonClear pull-left" ng-click="vibrate();goBack()">
+            &nbsp;&nbsp;&nbsp;<i class="icon ion-arrow-left-c"></i>&nbsp;&nbsp;&nbsp;
+        </button>
+        <span style="display:block;width:90%">{{fmcgData.geoaddress}}</span>
+                <button class="button buttonClear  button-balanced pull-right" ng-if="fmcgData.doctorSelectedList.length!=0" ng-click="vibrate();save()">Final Submit</button>
+
+    </ion-footer-bar>
+</ion-view>
+

@@ -1,0 +1,214 @@
+﻿<ion-view>
+ 
+<style>
+.button1 {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 13px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1 px;
+    margin: 4px 19px;
+    cursor: pointer;
+}
+.button1  {border-radius: 50%;}
+.button2 {
+    background-color: #498f24; /* Green */
+    border: none;
+	width:29px;
+    color: white;
+    padding: 9px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1 px;
+    margin: -3px 15px;
+    cursor: pointer;
+	margin-left: 1px;
+}
+.button2  {border-radius: 32%;}
+.button3 {
+    background-color: #cc2311; /* Red */
+    border: none;
+	width:29px;
+    color: white;
+    padding: 9px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1 px;
+    margin: -2px 8px;
+    cursor: pointer;
+}
+.button3  {border-radius: 32%;}
+.btn-primary {
+    color: #f8f8f8;
+    background-color: #aa1502;
+    border-color: #e8f7e1;
+	height :50px;
+	    
+}
+#search-text-input{
+ border-top: thin solid #e5e5e5;
+    border-right: thin solid #e5e5e5;
+    border-bottom: 0;
+    border-left: thin solid #e5e5e5;
+    box-shadow: 0px 1px 1px 1px #e5e5e5;
+    float: left;
+    height: 33px;
+    margin: .8em 0 0 .5em;
+    outline: 0;
+    padding: .4em 0 .4em .6em;
+    /* width: 1216px; */
+    margin-left: 0px;
+    margin-top: -6px;
+	    border: 1px solid #bf3654!important
+}
+
+  
+#button-holder{
+  background-color: #f1f1f1;
+    border-top: thin solid #e5e5e5;
+    box-shadow: 1px 1px 1px 1px #e5e5e5;
+    cursor: pointer;
+    float: right;
+    height: 33px;
+    /* border-left: thin solid #aa1502; margin: 11px 0 0 0; */
+    text-align: center;
+    width: 50px;
+    margin: -33px 0px;
+    border: 1px solid #bf3654!important
+}
+  
+#button-holder img{
+    margin:4px;
+    width:20px; 
+}
+
+</style>
+
+
+    <ion-content>
+        <div class="list list-inset" style="margin-bottom:2px;">
+           
+            <div class="select-component">
+                <div class="label">
+                    <div class="label-text">Doctor Name</div>
+                </div>
+                <div class="select-box">
+                  <div class="input-css" ng-click="vibrate();">
+                            {{(fmcgData.doctor.selected.id| getValueforIDD : {'collection' : doctors}).name  || "Doctor Name "}}
+                        </div>
+                </div>
+            </div>
+            <div class="select-component">
+                <div class="label">
+                    <div class="label-text">{{ChmCap}} Name</div>
+                </div>
+                <div class="select-box">
+                    <div class="input-box">
+                        <div class="input-css" ng-click="vibrate();openModal('chemist_master', 301, fmcgData.subordinate.selected.id)">
+						{{(RCPAAPP.chemist.selected.id| getValueforIDD : {'collection' : chemists}).name || "Select the " + ChmCap + " Name" }}
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="select-component">
+                <div class="label">
+                    <div class="label-text">Our Product</div>
+                </div>
+                <div class="select-box">
+                    <div class="input-box">
+                        <div class="input-css" ng-click="vibrate();openModal('product_master', 308,fmcgData.subordinate.selected.id)">
+                            {{RCPAAPP.OurBrnd.name || "Select Our Brand"}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<div class="row">
+				<div class="col col-25">
+					<div class="select-box">
+						<div class="input-box">
+							<input type="number" ng-model="data.qty" class="input-css" placeholder="Qty" ng-change="calculate()"> 
+						</div>
+					</div>
+				</div>
+				<div class="col col-35">
+					<div class="select-box">
+						<div class="input-box">
+							<input type="number" ng-model="data.amount" class="input-css" placeholder="Rate"> 
+						</div>
+					</div>
+				</div>
+				<div class="col col-40">
+					<div class="select-box">
+						<div class="input-box">
+							<input type="number" readonly value="{{total}}"  class="input-css" placeholder="Amount"> 
+						</div>
+					</div>
+				</div>				            
+            </div>
+			
+        </div>
+        <div class="row">
+		<div class="col col-30">
+		</div>		
+		 <div class="col col-40">
+			<p><button type="button" ng-click="addbrand()" class="btn-primary"><b>Add Brand List</b></button></p>            
+		</div>
+<div class="col col-30">
+		</div>				
+				</div> 
+		<div class="list list-inset" style="margin-bottom:2px;">
+		
+		<div  ng-repeat="item in rcpaDetails  track by $index" class="div-conversion1">
+			<div>
+				<div style="display:block;background-color:#fbc9f3;border:solid 1px #e45a5a;padding:4px;font-weight:bolder">
+				{{item.obname}}		 
+				</div>			
+			</div>
+			<div class="row1 div-conversion"  ng-repeat="citem in item.compats  track by $index">
+			<div class="col">
+			
+			<!--<input type="text" ng-model="citem.comptname"  class="input-css1" placeholder="Competitor Name">  -->
+			<input type="text" ng-model="citem.comptname" ng-click="openModal();" placeholder="Competitor Name" id='search-text-input' />
+			   <div id='button-holder'>
+				<img src='img/search.png' />
+			</div>
+			<div class="clearfix">
+			</div>
+			</div>
+			
+			<div class="col">
+			<!--<input type="text" ng-model="citem.comptbname"  class="input-css1" placeholder="Competitor Product">-->
+			<input type="text" ng-model="citem.comptbname" ng-click="openModal();" placeholder="Competitor Product" id='search-text-input' />
+			<div id='button-holder'><img src='img/search.png' /></div>
+			<div class="clearfix">
+			</div>			</div>
+			
+			<div class="row">
+			<div class="col col-25"><input type="number" ng-model="citem.comptbqty"  class="input-css1" placeholder="Qty"> </div>
+			<div class="col col-25"><input type="number" ng-model="citem.comptbprice"  class="input-css1" placeholder="Price"> </div>
+			<!--<div class="col col-25"><input type="number" ng-model="citem.comptbprice"  ng-change="calc_amount()" class="input-css1" placeholder="Price"> </div>-->
+			<div class="col col-30"><input type="number"   ng-model="citem.comptbamount" value="{{qt_total}}"  class="input-css1" placeholder="Amount"> </div>
+			<div class="col col-10"><button type="button" ng-click="addrow(item)" class="button2">
+<i class="ion-plus-round"></i></button></div>
+			<div class="col col-10"><button type="button" ng-click="deletebrand($index)" class="button3"><i class="ion-trash-b"></i></button></div>
+			  </div>
+			</div>
+        </div> 
+		</div> 
+		 
+         
+    </ion-content>
+    <ion-footer-bar class="bar-dark">
+	 <button class="button button-assertive buttonClear pull-left" ng-click="vibrate();goBack()">
+            &nbsp;&nbsp;&nbsp;<i class="icon ion-arrow-left-c"></i>&nbsp;&nbsp;&nbsp;
+        </button>
+        <button class="button buttonClear  button-balanced pull-right" ng-click="vibrate();save()">Submit</button>
+    </ion-footer-bar>
+</ion-view>

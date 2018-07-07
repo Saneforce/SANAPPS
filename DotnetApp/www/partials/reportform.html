@@ -1,0 +1,57 @@
+<ion-view class="ion-viewport">
+    <ion-content class="screen-parent">
+
+       <div class="row">
+         <div class = "col col-50 col-offset-2">  
+                <div class="div" ng-click="vibrate();
+                    goToCustomer(1)">
+                    <div   class="div-cont" style='width: 670px'>
+                        
+						<a href="#/fmcg/dayReport"><i class="ion-android-calendar" style="font-size:55px"></i>
+                        <div class="tex">Day Report</div></a>
+                    </div></div></div>
+
+        <div class = "col col-50 col-offset-2" ng-hide="ChmNeed"> 
+                <div class="div" >
+                    <div   class="div-cont" style='width: 670px'>
+                        
+					   <a href="#/fmcg/dcrdata"><i class="icon ion-ios7-pie" style="font-size:55px"></i>
+                        <div class="tex">Monthly Summary</div></a>
+
+                    </div></div></div></div>
+          <div class="row">
+          <div class = "col col-50 col-offset-2" ng-hide="StkNeed" > 
+                <div class="div" >
+                    <div   class="div-cont" style='width: 670px'>
+                        <a href="#/fmcg/tpview"><i class="icon ion-model-s" style="font-size:55px"></i>
+                        <div class="tex">TP View</div></a>
+
+                    </div></div></div>
+         <div class = "col col-50 col-offset-2" ng-hide="UNLNeed" > 
+                <div class="div" >
+                    <div   class="div-cont" style='width: 670px'>
+					<a href="#/fmcg/tpviewdt"><i class="icon ion-calendar" style="font-size:55px"></i>
+                        
+                        <div class="tex">TP View Datewise</div></a>
+
+                    </div></div></div></div>
+					<div class="row">
+          <div class = "col col-50 col-offset-2" ng-hide="StkNeed" > 
+                <div class="div" >
+                    <div   class="div-cont" style='width: 670px'>
+                        <a href="#/fmcg/precall"><i class="icon-new icon-history" style="font-size:115px"></i>
+                        <div class="tex">Precall Analysis</div></a>
+
+                    </div></div></div>
+        </div>
+					
+          
+
+
+  
+    </ion-content>
+     <ion-footer-bar >
+        <marquee direction="left" style="color:red;font-weight:bold;" id="footer">After Adding the New Listed Doctors on web kindly do Master SYNC</marquee>
+
+   </ion-footer-bar>
+</ion-view>

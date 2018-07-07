@@ -1,0 +1,125 @@
+<ion-view>
+    <ion-content>
+
+        <div class="list list-inset"> <div class="select-component" >
+               <div class="label">
+                    <div class="label-text">Input</div>
+                </div>
+            <div class="select-box">
+                <div class="input-box">
+                    <div  class="input-css" ng-click="vibrate();openModal('gift_master', 10)">                    
+                        {{(fmcgData.gift.selected.id| getValueforIDD : {'collection' : gifts}).name || "Select the Input"}}
+                    </div>   
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="gridStyle" ng-grid="gridOptions" style="height: 500px;display:none;">
+        </div>
+       <!-- <div>
+            <div class="row moveDown"  ng-if="multiple_doc_need != 0||fmcgData.arc||fmcgData.customer.selected.id != 1||fmcgData.worktype.selected.FWFlg != 'F'" >
+                <div class="col"> <div class='buttonC-container left-sidepull' ng-click="vibrate();save()"  ng-if="((!fmcgData.arc))">
+                        <div class="buttonC">
+                            <i class="icon ion-archive footer-icon"></i>
+                        </div>
+                        <div class='buttonC-text'>Save To Draft</div>
+                    </div></div>
+                <!--<div class="col"><div class='buttonC-container right-sidepull' ng-click="vibrate();showModal()">
+                        <div class="buttonC">
+                            <i class="icon ion-clipboard footer-icon"></i>
+                        </div>
+                        <div class='buttonC-text'>Summary</div>
+                    </div></div>->
+					
+
+            </div>
+        </div>-->
+		<div class="row moveDown"> 
+<div class="col" ng-if="fmcgData.customer.selected.id == 1">
+                <div class='buttonC-container pull-left' ng-click="sc_listed()" >
+                    <div class="buttonC">
+                      <i class="icon ion-medkit footer-icon" style="line-height: 45px;"></i>
+                        
+                    </div>
+                    <div class='buttonC-text'>Listed Doctors </div>
+                </div>
+            </div>
+<div class="col" ng-if="fmcgData.customer.selected.id == 2">
+                <div class='buttonC-container pull-left' ng-click="sc_listed()" >
+                    <div class="buttonC">
+                      <i class="icon ion-medkit footer-icon" style="line-height: 45px;"></i>
+                        
+                    </div>
+                    <div class='buttonC-text'>Chemist </div>
+                </div>
+            </div>
+<div class="col" ng-if="fmcgData.customer.selected.id == 3">
+                <div class='buttonC-container pull-left' ng-click="sc_listed()" >
+                    <div class="buttonC">
+                      <i class="icon ion-medkit footer-icon" style="line-height: 45px;"></i>
+                        
+                    </div>
+                    <div class='buttonC-text'>Stockist </div>
+                </div>
+            </div>
+<div class="col" ng-if="fmcgData.customer.selected.id == 4">
+                <div class='buttonC-container pull-left' ng-click="sc_listed()" >
+                    <div class="buttonC">
+                      <i class="icon ion-medkit footer-icon" style="line-height: 45px;"></i>
+                        
+                    </div>
+                    <div class='buttonC-text'>UnListed Doctors </div>
+                </div>
+            </div>			
+            <div class="col" ng-if="(fmcgData.customer.selected.id == 1 && DPNeed == 0) || (fmcgData.customer.selected.id == 2 && CPNeed == 0) || (fmcgData.customer.selected.id == 3 && SPNeed == 0) || (fmcgData.customer.selected.id == 4 && NPNeed == 0) ">
+                <div class='buttonC-container pull-left' ng-click="sc_product();">
+                    <div class="buttonC">
+                        <i class="icon ion-clipboard footer-icon" style="line-height: 45px;"></i>
+                        
+                    </div>
+                    <div class='buttonC-text'>Products</div>
+                </div>
+            </div>
+			 <!--<div class="col" ng-if="multiple_doc_need != 0||fmcgData.arc||fmcgData.customer.selected.id != 1||fmcgData.worktype.selected.FWFlg != 'F'" > <div class='buttonC-container pull-left' ng-click="vibrate();save()"  ng-if="((!fmcgData.arc))">
+                        <div class="buttonC">
+                            <i class="icon ion-archive footer-icon"></i>
+                        </div>
+                        <div class='buttonC-text'>Save To Draft</div>
+                    </div></div>-->
+			
+			<div class="col">
+                <div class='buttonC-container pull-left' ng-click="sc_feedback();" >
+                    <div class="buttonC">
+                      <i class="icon ion-compose footer-icon" style="line-height: 45px;"></i>
+                        
+                    </div>
+                    <div class='buttonC-text'>Feed back </div>
+                </div>
+            </div>
+			
+			<div class="col">
+                <div class='buttonC-container pull-left' ng-click="vibrate();openOptMenu()" >
+                    <div class="buttonC">
+                      <i class="icon ion-images footer-icon" style="line-height: 45px;"></i>
+                        
+                    </div>
+                    <div class='buttonC-text'>Photo Captures </div>
+                </div>
+            </div>
+			 
+        </div>
+         <div style="height: 75px">
+
+        </div>
+    </ion-content>
+<ion-footer-bar class="bar-dark">
+
+    <button style="display:none;" class="button button-assertive buttonClear pull-left" ng-click="vibrate();goBack()">
+        &nbsp;&nbsp;&nbsp;<i class="icon ion-arrow-left-c"></i>&nbsp;&nbsp;&nbsp;
+    </button>
+        <button class="button button-small  button-calm" ng-if="multiple_doc_need == 0 && fmcgData.customer.selected.id == 1&& !fmcgData.arc&&fmcgData.worktype.selected.FWFlg == 'F'" style="margin-left:40%" ng-click="vibrate();goMain()">Main</button>
+
+
+      <button class="button button-balanced buttonClear pull-right"ng-click="vibrate();save_fourth()">&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;</button>
+</ion-footer-bar>
+</ion-view>

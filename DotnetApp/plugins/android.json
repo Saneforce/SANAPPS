@@ -1,0 +1,58 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.megster.cordova.FileChooser": {
+            "PACKAGE_NAME": "com.saneforce.dnetpharma"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.saneforce.dnetpharma"
+        },
+        "cordova-plugin-filepath": {
+            "PACKAGE_NAME": "com.saneforce.dnetpharma"
+        },
+        "hu.dpal.phonegap.plugins.UniqueDeviceID": {
+            "PACKAGE_NAME": "com.saneforce.dnetpharma"
+        },
+        "org.apache.cordova.camera": {
+            "PACKAGE_NAME": "com.saneforce.dnetpharma"
+        }
+    },
+    "dependent_plugins": {
+        "com.saneforce.sangps": {
+            "PACKAGE_NAME": "com.saneforce.dnetpharma"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.saneforce.dnetpharma"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.saneforce.dnetpharma"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.saneforce.dnetpharma"
+        },
+        "nl.x-services.plugins.toast": {
+            "PACKAGE_NAME": "com.saneforce.dnetpharma"
+        },
+        "org.apache.cordova.dialogs": {
+            "PACKAGE_NAME": "com.saneforce.dnetpharma"
+        },
+        "org.apache.cordova.geolocation": {
+            "PACKAGE_NAME": "com.saneforce.dnetpharma"
+        },
+        "org.apache.cordova.network-information": {
+            "PACKAGE_NAME": "com.saneforce.dnetpharma"
+        },
+        "org.apache.cordova.vibration": {
+            "PACKAGE_NAME": "com.saneforce.dnetpharma"
+        },
+        "phonegap-plugin-push": {
+            "PACKAGE_NAME": "com.saneforce.dnetpharma"
+        }
+    }
+}

@@ -1,0 +1,82 @@
+﻿/*Animated Label Form*/
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.form-label input {
+  display: block;
+  width: 100%;
+  height: 3em;
+  padding: 16px 8px;
+  border: 0;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  background: rgba(255, 255, 255, 0.97);
+  color: #212121;
+  outline: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.form-label fieldset {
+  position: relative;
+}
+.form-label fieldset:first-child input {
+  border-radius: 4px 4px 0 0;
+}
+.form-label fieldset:last-child input {
+  border-radius: 0 0 4px 4px;
+  -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+}
+.form-label fieldset + fieldset {
+  border-top: 1px solid #ddd;
+}
+.form-label label {
+  position: absolute;
+  top: 15px;
+  left: 8px;
+  color: #909090;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-css-label input[data-empty="false"], .form-css-label input:valid, .form-css-label input:focus {
+  padding: 28px 8px 10px;
+}
+.form-css-label input:focus {
+  outline: 0;
+  background: white;
+}
+.form-css-label input[data-empty="false"] + label, .form-css-label input:valid + label, .form-css-label input:focus + label {
+  color: #4a87ee;/*#5856D6;*/
+  font-weight: 700;
+  font-size: 12px;
+  -webkit-transform: translate3d(0, -10px, 0);
+          transform: translate3d(0, -10px, 0);
+}
+
+.form-js-label input[data-empty="false"], .form-js-label input:focus {
+  padding: 22px 8px 10px;
+}
+.form-js-label input:focus {
+  outline: 0;
+  background: white;
+}
+.form-js-label input[data-empty="false"] + label, .form-js-label input:focus + label {
+  color: #5856D6;
+  font-weight: 700;
+  font-size: 12px;
+  -webkit-transform: translate3d(0, -10px, 0);
+          transform: translate3d(0, -10px, 0);
+}
+/*End*/

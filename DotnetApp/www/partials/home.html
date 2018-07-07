@@ -1,0 +1,204 @@
+<ion-view class="ion-viewport">
+    <ion-content class="screen-parent">
+
+<div class="row1">
+	<div class = "col col-50 col-offset-2" style="float:left;"> 
+		<div class="div" ng-click="vibrate();
+		goToCustomer(1)">
+		<div   class="div-cont" style='width: 670px'>
+		<img  width="50" height="49" src="img/Doctor1.png">
+		<div class="tex">{{DrCap}}</div>
+		</div></div>
+	</div>
+
+	<div class = "col col-50 col-offset-2" ng-hide="ChmNeed" style="float:left;"> 
+		<div class="div" ng-click="vibrate();
+		goToCustomer(2)">
+		<div   class="div-cont" style='width: 670px'>
+		
+		<i class="icon ion-flask" style="font-size:55px"></i>
+		<div class="tex">{{ChmCap}}</div>
+		</div></div>
+	</div>
+	
+	<div ng-hide="StkNeed" class = "col col-50 col-offset-2"  style="float:left;"> 
+		<div class="div" ng-click="vibrate();
+		goToCustomer(3)">
+		<div   class="div-cont" style='width: 670px'>
+		
+		<i class="icon ion-toggle" style="font-size:55px"></i>
+		<div class="tex">{{StkCap}}</div>
+		</div></div>
+	</div>
+	 
+	<div  ng-hide="UNLNeed" class ="col col-50 col-offset-2"  style="float:left;"> 
+		<div class="div" ng-click="vibrate();
+		goToCustomer(4)">
+		<div   class="div-cont" style='width: 670px'>
+		<i class="icon ion-medkit" style="font-size:55px"></i>
+		<div class="tex">{{NLCap}}</div>
+		</div></div>
+	</div>
+	 
+	<div class = "col col-50 col-offset-2" style="float:left;"> 
+		<div class="div" ng-click="vibrate(); goToCustomer(12)">
+		<div   class="div-cont" style='width: 670px'>
+		<i class="icon-new icon-history" style="font-size:55px"></i>
+		<div class="tex">Precall Analysis</div>
+		</div>
+		</div>
+	</div>
+	<div class = "col col-50 col-offset-2"  style="float:left;" > 
+		<div class="div" ng-click="vibrate();
+		goToCustomer(11)">
+		<div   class="div-cont" style='width: 670px'>
+		<i class="icon ion-calendar" style="font-size:55px"></i>
+		<div class="tex">Day Remarks</div>
+		</div></div>
+	</div>
+	
+	<div class = "col col-50 col-offset-2"  style="float:left;" > 
+		<div class="div" ng-click="vibrate();
+		goToCustomer(13)">
+		<div   class="div-cont" style='width: 670px'>
+		<i class="icon ion-compose" style="font-size:55px"></i>
+		<div class="tex">Day Report</div>
+
+		</div></div>
+	</div>
+	<div class = "col col-50 col-offset-2" style="float:left;" > 
+		<div class="div" ng-click="vibrate();
+		goToCustomer(14)">
+		<div   class="div-cont" style='width: 670px'>
+		<i class="icon ion-ios7-pie" style="font-size:55px"></i>
+		<div class="tex">Monthly Summary</div>
+		</div></div>
+	</div>
+
+	<div class = "col col-50 col-offset-2" ng-if="onLine&&mailneed==0" ng-hide="" style="float:left;"> 
+		<div class="div" ng-click="vibrate();
+		goToCustomer(15)">
+		<div   class="div-cont" style='width: 670px'>
+		<i class="icon ion-android-mail" style="font-size:55px"></i>
+		<div class="tex">Mail</div>
+		</div></div>
+	</div>
+	<div class = "col col-50 col-offset-2" ng-hide="" style="float:left;" > 
+		<div class="div" ng-click="vibrate();
+		goToCustomer(16)">
+		<div   class="div-cont" style='width: 670px'>
+		<i class="icon ion-android-download" style="font-size:55px"></i>
+		<div class="tex">Master Sync</div>
+		</div></div>
+	</div>
+</div>
+       <!-- <div id="div1" class="screenHalf" ng-click="vibrate();goToCustomer(1)">
+            <div class="div-cont">
+                <img  width="50" height="50" src="img/Doctor1.png">
+                <div class="tex">{{DrCap}}</div>
+            </div>
+        </div>
+        <div id="div2" ng-hide="ChmNeed"  class="screenHalf" ng-click="vibrate();goToCustomer(2)">
+            <div class="div-cont"><img width="50" height="50" src="img/chemist.png" >
+                <div class="tex">{{ChmCap}}</div></div>
+
+        </div>
+        <div id="div3" ng-hide="StkNeed"  class="screenHalf" ng-click="vibrate();goToCustomer(3)">
+            <div class="div-cont"><img width="50" height="50" src="img/stockist.png">
+                <div class="tex">{{StkCap}}</div>
+            </div>
+        </div>
+        <div id="div4" ng-hide="UNLNeed" class="screenHalf" ng-click="vibrate();goToCustomer(4)">
+            <div class="div-cont">  <img  width="50" height="50" src="img/doctor.png">
+                <div class="tex">{{NLCap}}</div></div>
+        </div>
+           "
+        -->
+          <div class="row" ng-if="doctor_dobdow==0">
+         <div class = "col col-50 col-offset-2" ng-if="dob.length!=0">  
+                <div class="divwish">
+                    <div   class="div-contwish" style='width: 670px'>
+                        <div class="tex" style=" text-align: center;">Birthday</div>
+                        <!-- <ion-scroll direction="y" style="height:100px;">-->
+                        
+<div ng-repeat="(key, value) in dob | groupBy: 'sf_name' track by $index" class="group">
+     <div class="row" style="color:black;font-weight:bold;">
+   {{key}}
+  </div>
+                        <div class="row" ng-repeat="(i,x) in value track by $index" style="background-color: rgb(241, 241, 241)">
+                               
+  <div class="col col-75">
+     {{x.name}}
+  </div>
+
+
+  <div class="col col-25">
+           {{x.day}}
+  </div>
+
+
+</div>  </div>
+                        <!--</ion-scroll>-->
+                    </div></div></div>
+
+        <div class = "col col-50 col-offset-2" ng-if="dow.length!=0"> 
+                <div class="divwish">
+                    <div   class="div-contwish" style='width: 670px'>
+                        <div class="tex" style=" text-align: center;">Anniversary</div>
+                  <!--  <ion-scroll direction="y" style="height:100px;">-->
+                        
+<div ng-repeat="(key, value) in dow | groupBy: 'sf_name' track by $index" class="group">
+     <div class="row" style="color:black;font-weight:bold;">
+   {{key}}
+  </div>
+                        <div class="row" ng-repeat="(i,x) in value track by $index" style="background-color: rgb(241, 241, 241)">
+                               
+  <div class="col col-75">
+     {{x.name}}
+  </div>
+
+
+  <div class="col col-25">
+           {{x.day}}
+  </div>
+
+
+</div>  </div>
+                     <!--   </ion-scroll>-->
+                    </div>
+                </div></div></div>
+         <div style="margin-top:10px;"></div>
+        <div class="row" ng-if="leaves.length!=0" style="background-color:#5b9bd5;font-weight: bolder;font-family: sans-serif;color: #ffffff;font-size: 14px;">
+  <div class="col col-20">
+      
+  </div>
+            <div class="col col-{{ll}}" ng-repeat="(i,x) in leaves">
+  <div >
+   {{x.Leave_Type_Code}}
+  </div>
+  </div>
+ 
+</div>
+         <div class="row" ng-if="leaves.length!=0" ng-repeat="(n,names) in leaveCheck" style="background-color:#d2deef;font-weight: bolder;font-family: sans-serif;font-size: 14px;">
+  <div class="col col-20">
+      {{names.Name}}
+  </div>
+            <div class="col col-{{ll}}" ng-repeat="(i,x) in leaves" ng-if="n==0">
+                {{x.No_Of_Days}}
+  </div>
+  <div class="col col-{{ll}}" ng-repeat="(i,x) in leaves" ng-if="n==1">
+                {{x.Leave_Taken_Days}}
+  </div>
+             <div class="col col-{{ll}}" ng-repeat="(i,x) in leaves" ng-if="n==2">
+                {{x.Leave_Balance_Days}}
+  </div>
+</div>
+
+
+  
+    </ion-content>
+     <ion-footer-bar >
+        <marquee direction="left" style="color:red;font-weight:bold;" id="footer">After Adding the New Listed Doctors on web kindly do Master SYNC</marquee>
+
+   </ion-footer-bar>
+</ion-view>
